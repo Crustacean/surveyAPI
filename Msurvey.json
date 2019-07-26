@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "a5eafc15-8bbe-43f2-8872-f548b73f725e",
+		"name": "Msurvey",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Remove Till",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e2f6b9e6-d7d7-4df6-927f-a28fc9acdb98",
+						"exec": [
+							"",
+							"pass = true;",
+							"fail = false;",
+							"if(responseBody.has(\"Till successfully removed\")){ ",
+							"        tests[\"Till Removed Successfully\"] = pass",
+							"        tests[\"Status code is 200\"] = pass",
+							"        console.log('Till Removed');",
+							"        ",
+							"    } else if (responseBody.has(\"Till could not be removed\")){",
+							"        tests[\"Till Removed Successfully\"] = fail",
+							"        tests[\"Status code is 200\"] = pass",
+							"        console.log('Till Already removed');",
+							"    }",
+							"    ",
+							"    if (tests[\"Status code is 500\"]){",
+							"      tests = fail;",
+							"      console.log('service is down');",
+							"    }",
+							"",
+							"",
+							"    "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "/SharedResources/Service/PartnerPartyVBS-service2.serviceagent/PartnerPartyInterfaceEndpoint2/UpdatePartnerParty",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:v1=\"http://group.vodafone.com/contract/vho/header/v1\" xmlns:v11=\"http://group.vodafone.com/schema/vbm/party/partner-party/v1\" xmlns:v12=\"http://group.vodafone.com/schema/common/v1\" xmlns:urn=\"urn:un:unece:uncefact:documentation:standard:CoreComponentType:2\" xmlns:v13=\"http://group.vodafone.com/schema/vbo/party/partner-party/v1\">\r\n   <soapenv:Header>\r\n      <v1:Correlation>\r\n         <!--Optional:-->\r\n         <v1:ConversationID>12456789</v1:ConversationID>\r\n      </v1:Correlation>\r\n      <v1:Source>\r\n         <!--Optional:-->\r\n         <v1:CountryCode>?</v1:CountryCode>\r\n         <!--Optional:-->\r\n         <v1:Operator>?</v1:Operator>\r\n         <!--Optional:-->\r\n         <v1:Division>?</v1:Division>\r\n         <!--Optional:-->\r\n         <v1:System>USSD</v1:System>\r\n         <!--Optional:-->\r\n         <v1:Timestamp>?</v1:Timestamp>\r\n         <!--Zero or more repetitions:-->\r\n         <v1:Identity>\r\n            <v1:Token>73769a77545df93db35cb6844825ee0b39c04de181b4e0e10acff8a01d1d4a53</v1:Token>\r\n         </v1:Identity>\r\n         <!--Optional:-->\r\n         <v1:LanguageCode>?</v1:LanguageCode>\r\n      </v1:Source>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <v11:UpdatePartnerPartyVBMRequest>\r\n         <v11:PartnerPartyVBO>\r\n                <v12:IDs>\r\n                    <v12:ID>9196967844115953</v12:ID>\r\n                </v12:IDs>\r\n                <v12:Desc>RemoveTill</v12:Desc>\r\n                <v13:Details>\r\n                    <v13:Identifications>\r\n                        <v13:Identification>\r\n                            <v13:ID>1717171</v13:ID>\r\n                            <v13:Type>?</v13:Type>\r\n                        </v13:Identification>\r\n                    </v13:Identifications>\r\n                </v13:Details>\r\n                <v13:Parts>\r\n                    <v13:ContactPoints>\r\n                        <v13:ContactPoint>\r\n                            <v12:ID>2727272</v12:ID>\r\n                            <v12:Telephone>\r\n                                <v12:SubscriberNumber>254795898700</v12:SubscriberNumber>\r\n                            </v12:Telephone>\r\n                            <v12:Postal>\r\n                                <v12:Town>Nairobi</v12:Town>\r\n                            </v12:Postal>\r\n                        </v13:ContactPoint>\r\n                    </v13:ContactPoints>\r\n                </v13:Parts>\r\n            </v11:PartnerPartyVBO>\r\n\r\n      </v11:UpdatePartnerPartyVBMRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>"
+				},
+				"url": {
+					"raw": "https://172.29.221.181:16705/Msurvey/TillOperations",
+					"protocol": "https",
+					"host": [
+						"172",
+						"29",
+						"221",
+						"181"
+					],
+					"port": "16705",
+					"path": [
+						"Msurvey",
+						"TillOperations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddTill",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e2f6b9e6-d7d7-4df6-927f-a28fc9acdb98",
+						"exec": [
+							"pass = true;",
+							"fail = false;",
+							"",
+							"    // if (pm.test) {",
+							"    //     tests[\"Body matches string\"] = responseBody.has(\"The till has been added\");",
+							"    //     tests[\"Successfully request Sent\"] = pass",
+							"    //     console.log('Service is okey');",
+							"    // } else if(pm.test) {",
+							"    //     tests[\"Body matche string\"] = responseBody.has(\"The till is already added\");",
+							"        ",
+							"    //     console.log(pm.response.code);",
+							"    // }",
+							"    ",
+							"    if (tests[\"Status code is 500\"]){",
+							"      tests = fail;",
+							"      console.log('service is down');",
+							"    }",
+							" ",
+							"    if (responseBody.has(\"The till has been added\")) {",
+							"        tests[\"Successfully Till Added\"] = pass",
+							"        tests[\"Status code is 200\"] = pass",
+							"        console.log('Till added Successfuly');",
+							"    } else if(responseBody.has(\"The till is already added\")) {",
+							"        tests[\"Till added\"] = fail",
+							"        tests[\"Status code is 200\"] = pass",
+							"        console.log('Till already added');",
+							"    }",
+							"    ",
+							"    if(responseBody.has(\"The Till is not registered under this Merchants Number\")){",
+							"        tests[\"Till not added ,Till not registered to this Merchant\"] = fail",
+							"        tests[\"Status code is 200\"] = pass",
+							"        console.log('The Till is not registered under this Merchants Number');",
+							"    }",
+							"    ",
+							"     if (tests[\"Status code is 500\"]){",
+							"      tests = fail;",
+							"      console.log('service is down');",
+							"    }",
+							"",
+							"    if(responseBody.has(\"Invalid Input Data\")){",
+							"        tests = fail;",
+							"    }",
+							"    ",
+							"// pm.test(\"Successful POST request\", function () {",
+							"//     pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"// });",
+							"    ",
+							"    ",
+							"    "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"type": "text",
+						"value": "/SharedResources/Service/PartnerPartyVBS-service2.serviceagent/PartnerPartyInterfaceEndpoint2/UpdatePartnerParty"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "text/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:v1=\"http://group.vodafone.com/contract/vho/header/v1\" xmlns:v11=\"http://group.vodafone.com/schema/vbm/party/partner-party/v1\" xmlns:v12=\"http://group.vodafone.com/schema/common/v1\" xmlns:urn=\"urn:un:unece:uncefact:documentation:standard:CoreComponentType:2\" xmlns:v13=\"http://group.vodafone.com/schema/vbo/party/partner-party/v1\">\r\n   <soapenv:Header>\r\n      <v1:Correlation>\r\n         <!--Optional:-->\r\n         <v1:ConversationID>12456789</v1:ConversationID>\r\n      </v1:Correlation>\r\n      <v1:Source>\r\n         <!--Optional:-->\r\n         <v1:CountryCode>?</v1:CountryCode>\r\n         <!--Optional:-->\r\n         <v1:Operator>?</v1:Operator>\r\n         <!--Optional:-->\r\n         <v1:Division>?</v1:Division>\r\n         <!--Optional:-->\r\n         <v1:System>USSD</v1:System>\r\n         <!--Optional:-->\r\n         <v1:Timestamp>?</v1:Timestamp>\r\n         <!--Zero or more repetitions:-->\r\n         <v1:Identity>\r\n            <v1:Token>73769a77545df93db35cb6844825ee0b39c04de181b4e0e10acff8a01d1d4a53</v1:Token>\r\n         </v1:Identity>\r\n         <!--Optional:-->\r\n         <v1:LanguageCode>?</v1:LanguageCode>\r\n      </v1:Source>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <v11:UpdatePartnerPartyVBMRequest>\r\n         <v11:PartnerPartyVBO>\r\n                <v12:IDs>\r\n                    <v12:ID>9196967844115953</v12:ID>\r\n                </v12:IDs>\r\n                <v12:Desc>AddTill</v12:Desc>\r\n                <v13:Details>\r\n                    <v13:Identifications>\r\n                        <v13:Identification>\r\n                            <v13:ID>1717171</v13:ID>\r\n                            <v13:Type>?</v13:Type>\r\n                        </v13:Identification>\r\n                    </v13:Identifications>\r\n                </v13:Details>\r\n                <v13:Parts>\r\n                    <v13:ContactPoints>\r\n                        <v13:ContactPoint>\r\n                            <v12:ID>2727272</v12:ID>\r\n                            <v12:Telephone>\r\n                                <v12:SubscriberNumber>254795898700</v12:SubscriberNumber>\r\n                            </v12:Telephone>\r\n                            <v12:Postal>\r\n                                <v12:Town>Nairobi</v12:Town>\r\n                            </v12:Postal>\r\n                        </v13:ContactPoint>\r\n                    </v13:ContactPoints>\r\n                </v13:Parts>\r\n            </v11:PartnerPartyVBO>\r\n\r\n      </v11:UpdatePartnerPartyVBMRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>"
+				},
+				"url": {
+					"raw": "https://172.29.221.181:16705/Msurvey/TillOperations",
+					"protocol": "https",
+					"host": [
+						"172",
+						"29",
+						"221",
+						"181"
+					],
+					"port": "16705",
+					"path": [
+						"Msurvey",
+						"TillOperations"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "56e27874-f16e-41cd-b345-f55a302c7a33",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "336155dd-f932-4e58-8efb-0fd9454ff3e3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "6625e0e6-9b0e-4255-a796-766dff769c93",
+			"key": "TillNo",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "10c1e0c2-dd81-4471-a426-135d6e930c77",
+			"key": "OrganizationCode",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
